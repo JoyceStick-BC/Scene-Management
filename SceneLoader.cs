@@ -21,7 +21,7 @@ public class SceneLoader : MonoBehaviour {
     // Invoked with StartCoroutine(AsyncLoadScene(“<sceneName>”))
     IEnumerator AsyncLoadScene (string sceneName)
     {
-        yield return null;
+        // yield return null;
 
         AsyncOperation ao = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         ao.allowSceneActivation = false;
@@ -35,30 +35,29 @@ public class SceneLoader : MonoBehaviour {
             // Loading complete
             if (Mathf.Approximately(ao.progress, 0.9f))
             {
-                // Prompt user for
+                // TODO: Prompt user
                 // Pull vive trigger to start scene
                 if (VRTK.triggerClicked())
                 {
                     Debug.log("Loading done.");
-                    ao.allowSceneActivation = true;
-                    Scene nextScene = SceneManager.GetSceneByName(sceneName);
                     Scene prevScene = SceneManager.GetActiveScene().name;
-                    SceneManager.SetActiveScene(nextScene);
+                    ao.allowSceneActivation = true;
                     Debug.log("Scene activated");
-                    // UpdatePlayerPosition(nextScene);
-                    StartCoroutine(AsyncUnloadScene(prevScene));
                 }
             }
 
             yield return null;
         }
+
+        // UpdatePlayerPosition(nextScene);
+        StartCoroutine(AsyncUnloadScene(prevScene));
     }
 
     // Invoked with StartCoroutine(AsyncUnloadScene(“<sceneName>”))
     IEnumerator AsyncUnloadScene (string sceneName)
     {
-        yield return null;
-
+        // yield return null;
+        
         AsyncOperation ao = SceneManager.UnloadSceneAsync(sceneName);
 
         while (!ao.isDone)
