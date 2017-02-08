@@ -22,6 +22,28 @@ using UnityEngine.SceneManagement;
         3. Are scenes properly unloaded after the loading process completes?
         4. Does the Camera Rig position need to updated manually, or will change to the proper position
             in the new scene?  Is that behavior changed by Additive and Single mode?
+    
+    ***********************
+    ******* LICENSE *******
+    ***********************
+    JoyceStick is a Boston College digital humanities project employing Unity
+    to construct a virtual reality game from Joyce’s Ulysses for viewing on the
+    HTC Vive, supported by a Teaching and Mentoring Grant and substantial funding
+    from internal bodies at Boston College.
+    Copyright (C) 2017  Evan Otero, Drew Hoo, Emaad Ali, Will Bowditch, Matt Hardy, Jake Schafer, & Ryan Reede
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 public class SceneLoader : MonoBehaviour {
