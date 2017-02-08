@@ -2,6 +2,28 @@ using UnityEngine;
 using VRTK;
 using UnityEngine.SceneManagement;
 
+/*
+    Author: Evan Otero
+    Date:   Feb 6, 2016
+    
+    SceneLoader is responsible for asynchonously loading a Scene using Additive mode.  The
+    idea is to delagate the loading of the new scene to Unity's dedicated background process.
+    We can periodically query the state of the loading and display it.  The scene is loaded in
+    Additive mode so that the currently loaded scene is not closed.  When all assets are loaded,
+    scene is activated and the previous scene is unloaded.
+
+    This custom process should minimize the performance drop on the scene that is currently being
+    played and reduce the lag from activating a scene.
+
+    We will need to investigate further:
+        1. Is loading the scene in Additive mode necissary if loading is separated from activating?
+        2. Do the background processes significantly change game performance, which is critical when
+            using VR HMDs?
+        3. Are scenes properly unloaded after the loading process completes?
+        4. Does the Camera Rig position need to updated manually, or will change to the proper position
+            in the new scene?  Is that behavior changed by Additive and Single mode?
+ */
+
 public class SceneLoader : MonoBehaviour {
     private static SceneManager instance;
 
