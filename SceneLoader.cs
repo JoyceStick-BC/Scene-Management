@@ -31,6 +31,7 @@ using UnityEngine.SceneManagement;
     HTC Vive, supported by a Teaching and Mentoring Grant and substantial funding
     from internal bodies at Boston College.
     Copyright (C) 2017  Evan Otero, Drew Hoo, Emaad Ali, Will Bowditch, Matt Hardy, Jake Schafer, & Ryan Reede
+    http://joycestick.bc.edu/
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
