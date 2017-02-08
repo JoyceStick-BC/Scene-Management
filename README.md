@@ -12,7 +12,7 @@ JoyceStick is a Boston College digital humanities project employing Unity
 to construct a virtual reality game from Joyce’s Ulysses for viewing on the
 HTC Vive, supported by a Teaching and Mentoring Grant and substantial funding
 from internal bodies at Boston College.
-Copyright (C) 2017  Evan Otero, Drew Hoo, Emaad Ali, Will Bowditch, Matt Hardy, Jake Schafer, & Ryan Reede
+Copyright (C) 2017  Evan Otero, Drew Hoo, Emaad Ali, Will Bowditch, Matt Harty, Jake Schafer, & Ryan Reede
 http://joycestick.bc.edu/
 
 This program is free software: you can redistribute it and/or modify
