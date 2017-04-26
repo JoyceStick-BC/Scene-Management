@@ -41,19 +41,40 @@ public class TeleportObject : VRTK_InteractableObject
 {
     [SerializeField]
     private string nextSceneName;
+    [SerializeField]
+    private bool onUse;
+    [SerializeField]
+    private GameObject tooltipsObject;
+    
+    private VRTK_ControllerTooltips tooltips;
 
-    protected void Start() { }
+    protected void Start()
+    {
+        this.tooltips = tooltipObject.GetComponent<VRTK_ControllerTooltips>();
+    }
 
     protected override void Update()
     {
         base.Update();
     }
 
+    public override void Grabbed(GameObject usingObject)
+    {
+        tooltips.triggerText = "Enter " + nextSceneName;
+
+        base.Grabbed(usingObject);
+        if (!onUse)
+            StartCoroutine(SceneLoader.instance.AsyncLoadScene(nextSceneName));
+    }
+
     public override void StartUsing(GameObject usingObject)
     {
         base.StartUsing(usingObject);
-        StartCoroutine(SceneLoader.instance.AsyncLoadScene(nextSceneName));
+        if (onUse)
+            StartCoroutine(SceneLoader.instance.AsyncLoadScene(nextSceneName));
     }
+
+    public override void Ungrabbed(GameObject usingObject) { }
 
     public override void StopUsing(GameObject usingObject) { }
 }
