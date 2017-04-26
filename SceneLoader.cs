@@ -72,7 +72,7 @@ public class SceneLoader : MonoBehaviour {
     }
 
     // Invoked with StartCoroutine
-    public IEnumerator AsyncLoadScene(string sceneName, LoadSceneMode mode = LoadSceneMode.Single, bool unloadCurrent = false)
+    public IEnumerator AsyncLoadScene(string sceneName, bool activateOnReady = false, LoadSceneMode mode = LoadSceneMode.Single, bool unloadCurrent = false)
     {
         string prevScene =  SceneManager.GetActiveScene().name;
 
@@ -91,7 +91,7 @@ public class SceneLoader : MonoBehaviour {
                 rightControllerAppearence.toggleTriggerTooltips(true);
 
                 // Pull vive trigger to start scene
-                if (VRTK_SDK_Bridge.IsTriggerPressedDownOnIndex(controllerIndex))
+                if (VRTK_SDK_Bridge.IsTriggerPressedDownOnIndex(controllerIndex) || activateOnReady)
                 {
                     Debug.Log("Loading done.");
                     ao.allowSceneActivation = true;
